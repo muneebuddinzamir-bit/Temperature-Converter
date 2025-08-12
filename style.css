@@ -1,0 +1,241 @@
+/* Simple dark theme basic CSS */
+
+:root {
+  --bg-color: #0b1220;
+  --card-bg: #0f1724;
+  --text-color: #e6eef8;
+  --muted-color: #9aa7b2;
+  --accent-color: #60a5fa;
+  --border-radius: 14px;
+  --max-width: 980px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 28px;
+}
+
+.app {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+  margin-bottom: 18px;
+}
+
+/* Header */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.hero .muted {
+  color: var(--muted-color);
+  font-size: 13px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Panels */
+.panel {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.form-panel .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.label {
+  color: var(--muted-color);
+  font-size: 13px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-color);
+  font-size: 15px;
+  outline: none;
+}
+
+.radios {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.radios label {
+  font-size: 14px;
+  color: var(--muted-color);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: var(--accent-color);
+  color: #031425;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(46, 160, 246, 0.12);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2ea0f6;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--muted-color);
+  box-shadow: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Note text */
+.note {
+  margin-top: 10px;
+  color: var(--muted-color);
+  font-size: 13px;
+}
+
+/* Result panel */
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loading {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--muted-color);
+  background-color: rgba(96, 165, 250, 0.03);
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.06);
+  border-top-color: var(--accent-color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  display: none;
+  color: #ffb4b4;
+  background-color: rgba(255, 100, 100, 0.04);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 100, 100, 0.12);
+}
+
+.result-card {
+  padding: 18px;
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.result-value {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.result-meta {
+  color: var(--muted-color);
+  margin-top: 6px;
+}
+
+/* Settings */
+.settings {
+  margin-top: 6px;
+  color: var(--muted-color);
+  font-size: 13px;
+}
+
+.settings .small {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Footer */
+.foot {
+  text-align: center;
+  color: var(--muted-color);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .logo {
+    display: none;
+  }
+  .result-value {
+    font-size: 28px;
+  }
+}

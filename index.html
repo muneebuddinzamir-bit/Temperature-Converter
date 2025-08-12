@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Temperature Converter — Celsius ⇄ Fahrenheit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="card hero">
+      <div>
+        <h1>Temperature Converter</h1>
+        <p class="muted">Convert quickly between Celsius and Fahrenheit using the W3Schools SOAP API.</p>
+      </div>
+      <div class="logo">🌡️</div>
+    </header>
+
+    <main class="card layout">
+      <!-- left: form -->
+      <section class="panel form-panel">
+        <label class="field">
+          <span class="label">Temperature</span>
+          <input id="tempInput" type="text" inputmode="decimal" placeholder="Enter a number (e.g., 37.5)" />
+        </label>
+
+        <div class="radios">
+          <label><input type="radio" name="mode" value="CtoF" checked /> Celsius → Fahrenheit</label>
+          <label><input type="radio" name="mode" value="FtoC" /> Fahrenheit → Celsius</label>
+        </div>
+
+        <div class="actions">
+          <button id="convertBtn" class="btn">Convert</button>
+          <button id="clearBtn" class="btn ghost">Clear</button>
+        </div>
+
+        <div class="note">
+          <small>Note: Uses W3Schools tempconvert SOAP service.</small>
+        </div>
+      </section>
+
+      <!-- right: result -->
+      <aside class="panel result-panel">
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <div class="loading-text">Converting…</div>
+        </div>
+
+        <div class="error" id="errorMessage" role="alert"></div>
+
+        <div class="result-card" id="resultCard" aria-live="polite">
+          <div class="result-value" id="resultValue">—</div>
+          <div class="result-meta" id="resultMeta">No conversion yet</div>
+        </div>
+
+        <div class="settings">
+          <label class="small"><input type="checkbox" id="useProxy" checked /> Use public CORS proxy (for quick local test)</label>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="foot">
+      <small>Built with SOAP • <a href="https://www.w3schools.com/xml/tempconvert.asmx?WSDL" target="_blank">WSDL</a></small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
